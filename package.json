@@ -1,0 +1,16 @@
+{
+  "name": "mentalhealthhack",
+  "version": "1.0.0",
+  "description": "This is the project for Mental Health Hackathon",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "author": "Harsh Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.6.0"
+  }
+}

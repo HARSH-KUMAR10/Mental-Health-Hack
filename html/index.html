@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>no name</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+<script src="script.js" async defer></script>
+</head>
+<body onload="init()">
+<header>
+  <h2>Mental Health</h2>
+</header>
+
+<!--<nav>
+  <a herf="">Articals</a> <a herf="">Yoga</a>
+  
+</nav>-->
+
+
+<section>
+<div class="container mt-sm-5 my-1">
+  <div id="status" style="color:whitesmoke;"></div>
+  <div id="QSection">
+    <div class="container mt-sm-5 my-1">
+      <div class="question ml-sm-5 pl-sm-5 pt-2">
+          <div class="py-2 h5">
+              <div class="form-group row">
+                  <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail:</label>
+                  <div class="col-md-6">
+                      <input type="email" id="email_address" class="form-control" name="email-address" required autofocus>
+                  </div>
+                  <div class="ml-auto mr-sm-5"><button class="btn btn-success" onclick="readEmail()">Next</button></div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+    <div id="navbuttons" class="d-flex align-items-center pt-3">
+        <div id="prev"> <button class="btn btn-primary" onclick="previous()">Previous</button> </div>
+        <div id="next" class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="next()">Next</button> </div>
+    </div>
+</div>
+</section>
+
+
+
+<!--<footer>
+  <p>Footer</p>
+</footer>-->
+
+</body>
+</html>
