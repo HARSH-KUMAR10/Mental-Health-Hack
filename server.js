@@ -54,7 +54,7 @@ app.get('/getResult',(req,res)=>{
         res.json({"color":"yellow"});
     }else{
         PDF="green.pdf";
-        res.json({"color":"green"});
+        res.json({"color":"lightgreen"});
     }
     sendMail(email);
 });
