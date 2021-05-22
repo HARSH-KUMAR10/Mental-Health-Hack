@@ -76,7 +76,7 @@ function next(){
             QSection.style.textAlign="center";
             QSection.style.color=data.color;
             QSection.style.fontSize="25px";
-            var showData = "Mental Health Percentage : "+100-totalMarks/24*100;
+            var showData = "Mental Health Percentage : "+(100-(totalMarks/24*100));
             showData+="<br/><br/>PDF for yoga and Food Chart has been sent to your email<br/>"
             showData+="Click <a href='/"+data.color+"' target='_blank'>link</a> to see";
             QSection.innerHTML=showData;
