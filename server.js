@@ -68,22 +68,22 @@ function sendMail(email){
         attachments: [
           {
             filename: PDF,
-            path: __dirname + "/pdfs/"+PDF,
+            path: path.join(__dirname + "/pdfs/"+PDF)
           },
         ],
       });
 }
 
 app.get('/Red',(req,res)=>{
-    res.sendFile(__dirname+"/pdfs/Red.pdf");
+    res.sendFile(path.join(__dirname+"/pdfs/Red.pdf"));
 })
 
 app.get('/Yellow',(req,res)=>{
-    res.sendFile(__dirname+"/pdfs/Yellow.pdf");
+    res.sendFile(path.join(__dirname+"/pdfs/Yellow.pdf"));
 })
 
 app.get('/Green',(req,res)=>{
-    res.sendFile(__dirname+"/pdfs/Green.pdf");
+    res.sendFile(path.join(__dirname+"/pdfs/Green.pdf"));
 })
 
 app.get('/setComment',(req,res)=>{
