@@ -17,7 +17,9 @@ var transporter = nodemailer.createTransport({
 });
 
 
-app.use(express.static("html"))
+app.use(express.static("html"));
+app.use(express.static("jsons"));
+app.use(express.static("pdfs"));
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+"/html/index.html");
