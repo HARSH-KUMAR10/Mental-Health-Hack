@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>no name</title>
+<title>Mental Hack</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -10,7 +10,7 @@
 </head>
 <body onload="init()">
 <header>
-  <h2>Mental Health</h2>
+  <h2>Mental Hack</h2>
 </header>
 
 <!--<nav>
@@ -18,9 +18,19 @@
   
 </nav>-->
 
+<section class="container mt-sm-5 my-1" >
+  <h5 id="instructionsSection">How to Use the Mental Health Check-Up Metre and get Your PDF of Food and Yoga Instructions</h5>
+  <ul type="none" style="margin-left:5%;">
+    <li>&#8594; Enter Your Email.</li>
+    <li>&#8594; Answer the following questions.</li>
+    <li>&#8594; After answering all the questions your pdf will be sent to your email.</li>
+    <li>&#8594; You can contact us anytime from anywhere in the world and we will try to get you all help you need (You are not alone).</li>
+  </ul>
+</section>
 
 <section>
 <div class="container mt-sm-5 my-1">
+  <h3 id="instructionsSection">Mental Health Check</h3>
   <div id="status" style="color:whitesmoke;"></div>
   <div id="QSection">
     <div class="container mt-sm-5 my-1">
@@ -43,6 +53,83 @@
     </div>
 </div>
 </section>
+
+<section class="container mt-sm-5 my-1" id="instructionsSection" onmouseover="showAllCount()">
+<h3>Statistics:</h3>
+<div id="statCard">
+<h5>Test Taken By :</h5>
+<div id="peopleCount1">0</div>
+</div>
+
+<div id="statCard">
+  <h5>Green Zone Count :</h5>
+  <div id="peopleCount2">0</div>
+</div>
+
+<div id="statCard">
+  <h5>Yellow Zone Count :</h5>
+  <div id="peopleCount3">0</div>
+</div>
+
+<div id="statCard">
+  <h5>Red Zone Count :</h5>
+  <div id="peopleCount4">0</div>
+</div>
+
+<br><br>
+</section>
+
+<section>
+  <div class="container mt-sm-5 my-1">
+      <div class="form-1-container section-container">
+          <div class="container">
+              <div class="row">
+                  <div class="col form-1 section-description wow fadeIn">
+                      <h2>CONTACT US:</h2>
+                      <div class="divider-1 wow fadeInUp"><span></span></div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-10 offset-md-1 form-1-box wow fadeInUp">
+                          <fieldset class="form-group border p-3">
+                              <div class="form-group">
+                                  <label for="name">Name:</label>
+                                  <input type="text" class="form-control name" id="CommentName" placeholder="Name" name="name">
+                              </div>
+                              <div class="form-group">
+                                  <label for="email">Email:</label>
+                                  <input type="email" class="form-control email" id="CommentEmail" placeholder="Email" name="email">
+                              </div>
+                              <div class="form-group">
+                                  <label for="comment">Comment:</label>
+                                  <textarea class="form-control " rows="6" id="Comment" placeholder="" name="comment"></textarea>
+                              </div>
+                          </fieldset>
+                          <div class="form-group row text-right">
+                              <div class="col">
+                                  <div class="ml-auto mr-sm-5"> <button class="btn btn-success" onclick="sendComment()">Submit</button> </div>
+                              </div>
+                          </div>
+                          <div id="CommentStatus" style="color:white;"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<div class="bottom section-padding">
+
+  <div class="row">
+      <div class="col-md-12 text-center py-3">
+          <div class="copyright">
+              <p><span></span> <a href="#" class="transition">mental-health-help.herokuapp.com</a><br>email : javascriptextreme@gmail.com</p>
+          </div>
+      </div>
+
+  </div>
+</div>
 
 
 

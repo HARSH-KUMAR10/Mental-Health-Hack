@@ -47,14 +47,14 @@ app.get('/getResult',(req,res)=>{
     });
     var total = parseInt(result);
     if(total>16){
-        PDF="red.pdf";
-        res.json({"color":"red"});
+        PDF="Red.pdf";
+        res.json({"color":"Red"});
     }else if(total>8){
-        PDF="yellow.pdf";
-        res.json({"color":"yellow"});
+        PDF="Yellow.pdf";
+        res.json({"color":"Yellow"});
     }else{
-        PDF="green.pdf";
-        res.json({"color":"lightgreen"});
+        PDF="Green.pdf";
+        res.json({"color":"Green"});
     }
     sendMail(email);
 });
@@ -74,17 +74,57 @@ function sendMail(email){
       });
 }
 
-app.get('/red',(req,res)=>{
-    res.sendFile(__dirname+"/pdfs/red.pdf");
+app.get('/Red',(req,res)=>{
+    res.sendFile(__dirname+"/pdfs/Red.pdf");
 })
 
-app.get('/yellow',(req,res)=>{
-    res.sendFile(__dirname+"/pdfs/yellow.pdf");
+app.get('/Yellow',(req,res)=>{
+    res.sendFile(__dirname+"/pdfs/Yellow.pdf");
 })
 
-app.get('/green',(req,res)=>{
-    res.sendFile(__dirname+"/pdfs/green.pdf");
+app.get('/Green',(req,res)=>{
+    res.sendFile(__dirname+"/pdfs/Green.pdf");
 })
+
+app.get('/setComment',(req,res)=>{
+    var CommentName = req.query.CommentName;
+    var CommentEmail = req.query.CommentEmail;
+    var Comment = req.query.Comment;
+    var comments = fs.readFileSync(__dirname+"/jsons/comment.json");
+    var comments = JSON.parse(comments);
+    var newComment = {
+        Name:CommentName,
+        Email:CommentEmail,
+        CommentRecieved:Comment
+    }
+    comments.data[comments.data.length]=newComment;
+    fs.writeFile(__dirname+"/jsons/comment.json",JSON.stringify(comments),(err)=>{
+        if(err) return res.json({"success":"false"});
+        else return res.json({"success":"true"});
+    })
+});
+
+app.get('/getCount',(req,res)=>{
+    var data = fs.readFileSync(__dirname+"/jsons/data.json");
+    data = JSON.parse(data);
+    var red=0,yellow=0,green=0;
+    for(i=0;i<data.users.length;i++){
+        if(data.users[i].userResult>16){
+            red++;
+        }else if(data.users[i].userResult>8){
+            yellow++;
+        }else{
+            green++;
+        }
+    }
+    var response = {
+        one:(red+yellow+green),
+        two:green,
+        three:yellow,
+        four:red
+    }
+    res.json({"response":response});
+});
 
 app.listen(PORT,()=>{
     console.log("http://localhost:"+PORT);

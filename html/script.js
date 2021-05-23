@@ -4,6 +4,14 @@ const navbuttons = document.getElementById("navbuttons");
 const prevBut = document.getElementById("prev");
 const nextBut = document.getElementById("next");
 const email_address = document.getElementById("email_address");
+const CommentName = document.getElementById("CommentName");
+const CommentEmail = document.getElementById("CommentEmail");
+const Comment = document.getElementById("Comment");
+const CommentStatus = document.getElementById("CommentStatus");
+const peopleCount1 = document.getElementById("peopleCount1");
+const peopleCount2 = document.getElementById("peopleCount2");
+const peopleCount3 = document.getElementById("peopleCount3");
+const peopleCount4 = document.getElementById("peopleCount4");
 
 var questions=[];
 var Qno = 0;
@@ -25,6 +33,7 @@ function init(){
         questions[i]=newQ;
         }
     });
+    countAllNumbers();
 }
 
 function showQuestion(){
@@ -91,5 +100,57 @@ function readEmail(){
     }else{
         status.innerHTML="";
         showQuestion();
+    }
+}
+
+function sendComment(){
+    var url="/setComment?CommentName="+CommentName.value+"&CommentEmail="+CommentEmail.value+"&Comment="+Comment.value;
+    CommentName.value="";
+    CommentEmail.value="";
+    Comment.value="";
+    fetch(url).then(res=>res.json()).
+    then(data=>{
+        if(data.success){
+            CommentStatus.innerHTML="Response Recorded";
+        }else{
+            CommentStatus.innerHTML="Error Occured";
+        }
+    })
+}
+
+var CountOne=20,CountTwo=5,CountThree=12,CountFour=3;
+
+function countAllNumbers(){
+    fetch('/getCount').then(res=>res.json()).
+    then(data=>{
+        CountOne = data.response.one;
+        CountTwo = data.response.two;
+        CountThree = data.response.three;
+        CountFour = data.response.four;
+    });
+}
+
+var mouseoverCount=0;
+var intervalCount=0;
+function showAllCount(){
+    var count1=0,count2=0,count3=0,count4=0;
+    if((mouseoverCount++)==1){
+        var x = setInterval(()=>{
+            if((count1++)<CountOne){
+                peopleCount1.innerHTML=count1;
+            }
+            if((count2++)<CountTwo){
+                peopleCount2.innerHTML=count1;
+            }
+            if((count3++)<CountThree){
+                peopleCount3.innerHTML=count1;
+            }
+            if((count4++)<CountFour){
+                peopleCount4.innerHTML=count1;
+            }
+            if((intervalCount++)>=CountOne){
+                clearInterval(x);
+            }
+        },200);
     }
 }
