@@ -4,11 +4,8 @@
   "description": "This is the project for Mental Health Hackathon",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "client": "npm start --prefix client",
-    "client-install": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "test": "node server.js",
+    "start": "node server.js"
   },
   "author": "Harsh Kumar",
   "license": "ISC",
