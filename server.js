@@ -50,13 +50,13 @@ app.get('/getResult',(req,res)=>{
     });
     var total = parseInt(result);
     if(total>16){
-        PDF="Red.pdf";
+        PDF="RedPlan.pdf";
         res.json({"color":"Red"});
     }else if(total>8){
-        PDF="Yellow.pdf";
+        PDF="YellowPlan.pdf";
         res.json({"color":"Yellow"});
     }else{
-        PDF="Green.pdf";
+        PDF="GreenPlan.pdf";
         res.json({"color":"Green"});
     }
     sendMail(email);
@@ -78,15 +78,15 @@ function sendMail(email){
 }
 
 app.get('/Red',(req,res)=>{
-    res.sendFile(path.join(__dirname+"/pdfs/Red.pdf"));
+    res.sendFile(path.join(__dirname+"/pdfs/RedPlan.pdf"));
 })
 
 app.get('/Yellow',(req,res)=>{
-    res.sendFile(path.join(__dirname+"/pdfs/Yellow.pdf"));
+    res.sendFile(path.join(__dirname+"/pdfs/YellowPlan.pdf"));
 })
 
 app.get('/Green',(req,res)=>{
-    res.sendFile(path.join(__dirname+"/pdfs/Green.pdf"));
+    res.sendFile(path.join(__dirname+"/pdfs/GreenPlan.pdf"));
 })
 
 app.get('/setComment',(req,res)=>{
